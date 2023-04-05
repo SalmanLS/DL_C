@@ -179,5 +179,23 @@ namespace DL_SS2_C
                 Console.WriteLine();
             }
         }
+        public void insert(string idT,string nmT, string noT, string jlT, string kabT, string provT, char jkT,SqlConnection conek)
+        {
+            string str = "";
+            str = "insert into dbo.Tamu (id_tamu, nama_tamu, no_tlfon, jalan_t, kabupaten_t, provinsi_t, jenisK)" + "values(@id_tamu, @namat, @ no_tlfon, @jalanA, @kabupA, @provinsiA, @jenisk)";
+            SqlCommand cmd = new SqlCommand(str, conek);
+            cmd.CommandType = System.Data.CommandType.Text;
+
+            cmd.Parameters.Add(new SqlParameter("id_tamu", idT));
+            cmd.Parameters.Add(new SqlParameter("namat", nmT));
+            cmd.Parameters.Add(new SqlParameter("no_tlfon", noT));
+            cmd.Parameters.Add(new SqlParameter("jalanA", jlT));
+            cmd.Parameters.Add(new SqlParameter("kabupA", kabT));
+            cmd.Parameters.Add(new SqlParameter("provinsiA", provT));
+            cmd.Parameters.Add(new SqlParameter("jenisk", jkT));
+            cmd.ExecuteNonQuery();
+
+            Console.WriteLine("Data berhasil ditambahkan");
+        }
     }
 }
