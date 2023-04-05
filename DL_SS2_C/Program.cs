@@ -108,7 +108,22 @@ namespace DL_SS2_C
                                                 break;
                                             case '4':
                                                 {
-
+                                                    Console.Clear();
+                                                    Console.WriteLine("Input Data Tamu \n");
+                                                    Console.WriteLine("Masukkan ID Tamu :");
+                                                    string id_tamu = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan nama Tamu :");
+                                                    string namat = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan No.Telfon :");
+                                                    string no_tlfon = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan Alamat(Jalan) :");
+                                                    string jalanA = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan Alamaat(Kabupaten) :");
+                                                    string kabupA = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan Alamat(Provinsi) :");
+                                                    string provinsiA = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan Jenis Kelamin :");
+                                                    char jenisk = Convert.ToChar(Console.ReadLine());
                                                 }
                                                 break;
                                             case '5':
@@ -205,6 +220,18 @@ namespace DL_SS2_C
             cmd.ExecuteNonQuery();
             Console.WriteLine("Data sudah dihapus");
 
+        }
+        public void update(string idT, string nmT, string noT, string jlT, string kabT, string provT, char jkT, SqlConnection conek)
+        {
+            string str = "";
+            str = "update from dbo.Tamu";
+        }
+        
+        public void search(string idT, SqlConnection conek)
+        {
+            SqlCommand cmd = new SqlCommand("Select*From dbo.Tamu where id_tamu " + " = " + idT + "", conek);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            rdr.Read();
         }
 
     }
