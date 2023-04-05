@@ -36,6 +36,55 @@ namespace DL_SS2_C
                                 konek = new SqlConnection(string.Format(strkonek, db, user, pass));
                                 konek.Open();
                                 Console.Clear();
+                                while (true)
+                                {
+                                    try
+                                    {
+                                        Console.WriteLine("===MENU===");
+                                        Console.WriteLine("1. Melihat Seluruh Data");
+                                        Console.WriteLine("2. Tambah Data");
+                                        Console.WriteLine("3. Hapus Data");
+                                        Console.WriteLine("4. Update Data");
+                                        Console.WriteLine("5. Cari Data");
+                                        Console.WriteLine("6. Keluar");
+                                        Console.Write("\n Enter your choice (1-6)");
+                                        char chs = Convert.ToChar(Console.ReadLine());
+                                        switch (chs)
+                                        {
+                                            case '1':
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("Data Tamu \n");
+                                                    Console.WriteLine();
+                                                    pr.baca(konek);
+                                                    konek.Close();
+                                                }
+                                                break;
+                                            case '2':
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("Input Data Tamu \n");
+                                                    Console.WriteLine("Masukkan ID Tamu :");
+                                                    string id_tamu = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan nama Tamu :");
+                                                    string namat = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan No.Telfon :");
+                                                    string no_tlfon = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan Alamat(Jalan) :");
+                                                    string jalanA = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan Alamaat(Kabupaten) :");
+                                                    string kabupA = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan Alamat(Provinsi) :");
+                                                    string provinsiA = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan Jenis Kelamin :");
+                                                    char jenisk = Convert.ToChar(Console.ReadLine()); 
+                                               
+                                                }
+                                                break;
+                                        }
+
+                                    }
+                                }
                             }
                             break;
                     }
