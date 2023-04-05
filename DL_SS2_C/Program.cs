@@ -227,7 +227,7 @@ namespace DL_SS2_C
             str = "update from dbo.Tamu";
         }
         
-        public void search(string idT, SqlConnection conek)
+        public void cari(string idT, SqlConnection conek)
         {
             SqlCommand cmd = new SqlCommand("Select*From dbo.Tamu where id_tamu " + " = " + idT + "", conek);
             SqlDataReader rdr = cmd.ExecuteReader();
