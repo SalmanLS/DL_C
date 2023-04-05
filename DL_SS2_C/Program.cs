@@ -197,5 +197,15 @@ namespace DL_SS2_C
 
             Console.WriteLine("Data berhasil ditambahkan");
         }
+        public void delete(string idT, SqlConnection conek)
+        {
+            string st = "";
+            st = "delete from dbo.Tamu where id_tamu " + " = " + idT + "";
+            SqlCommand cmd = new SqlCommand(st, conek);
+            cmd.ExecuteNonQuery();
+            Console.WriteLine("Data sudah dihapus");
+
+        }
+
     }
 }
