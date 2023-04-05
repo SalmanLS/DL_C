@@ -111,14 +111,58 @@ namespace DL_SS2_C
 
                                                 }
                                                 break;
+                                            case '5':
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("Cari Data Tamu \n");
+                                                    Console.WriteLine("Masukkan ID Tamu :");
+                                                    string id_tamu = Console.ReadLine();
+                                                    try
+                                                    {
+                                                        pr.cari(id_tamu, konek);
+                                                        konek.Close();
+                                                    }
+                                                    catch
+                                                    {
+                                                        Console.WriteLine("\n Anda tidak memiliki " + "akses untuk menambah data");
+                                                    }
+                                                }
+                                                break;
+                                            case '6':
+                                                {
+                                                    konek.Close();
+                                                    return;
+                                                }
+                                            default:
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("\n Invalid Option");
+                                                }
+                                                break;
                        
                                         }
 
                                     }
+                                    catch
+                                    {
+                                        Console.WriteLine("\n Check the value entered! ");
+                                    }
                                 }
                             }
+                        default:
+                            {
+                                Console.WriteLine("\n Invalid Option");
+                            }
                             break;
+                        
                     }
+                }
+                catch
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("Tidak Dapat mengakses database menggunakan user tersebut \n");
+                    Console.ResetColor();
                 }
             }
         }
