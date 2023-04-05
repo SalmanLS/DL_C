@@ -166,5 +166,18 @@ namespace DL_SS2_C
                 }
             }
         }
+        public void baca(SqlConnection conek)
+        {
+            SqlCommand cmd = new SqlCommand("Select*From dbo.Tamu", conek);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                for(int i = 0; i < rdr.FieldCount; i++)
+                {
+                    Console.WriteLine(rdr.GetValue(i));
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
