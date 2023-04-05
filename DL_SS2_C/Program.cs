@@ -77,10 +77,41 @@ namespace DL_SS2_C
                                                     Console.WriteLine("Masukkan Alamat(Provinsi) :");
                                                     string provinsiA = Console.ReadLine();
                                                     Console.WriteLine("Masukkan Jenis Kelamin :");
-                                                    char jenisk = Convert.ToChar(Console.ReadLine()); 
-                                               
+                                                    char jenisk = Convert.ToChar(Console.ReadLine());
+                                                    try
+                                                    {
+                                                        pr.insert(id_tamu, namat, no_tlfon, jalanA, kabupA, provinsiA, jenisk, konek);
+                                                        konek.Close();
+                                                    }
+                                                    catch
+                                                    {
+                                                        Console.WriteLine("\n Anda tidak memiliki " + "akses untuk menambah data");
+                                                    }
                                                 }
                                                 break;
+                                            case '3':
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("Hapus Data Tamu \n");
+                                                    Console.WriteLine("Masukkan ID Tamu :");
+                                                    string id_tamu = Console.ReadLine();
+                                                    try
+                                                    {
+                                                        pr.delete(id_tamu, konek);
+                                                        konek.Close();
+                                                    }
+                                                    catch
+                                                    {
+                                                        Console.WriteLine("\n Anda tidak memiliki " + "akses untuk menambah data");
+                                                    }
+                                                }
+                                                break;
+                                            case '4':
+                                                {
+
+                                                }
+                                                break;
+                       
                                         }
 
                                     }
